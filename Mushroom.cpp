@@ -34,11 +34,8 @@ Mushroom::~Mushroom()
 {
     for (int i = 0; i < Mycellium.size(); i++)
     {
-        if(Mycellium[i] == this) {
-            Mycellium.erase(Mycellium.begin() + i);
             break;
         }
-    }
 }
 
 void Mushroom::setSprite()
@@ -46,15 +43,29 @@ void Mushroom::setSprite()
     if (!textureup)
     {
         textureup = new sf::Texture;
-        if(!(textureup->loadFromFile("res/mushrooms/mushroom_up.png")))
+        if(!(textureup->loadFromFile("res/mushrooms/Mushroom_up.png")))
+        {
+            cout << "Failed to load image \"res/mushrooms/mushroom_up.png\". Reason: Unable to open file" << endl;
+            cout << "Current working directory when loading: " << endl;
+            system("pwd");
+            cout << "Contents of 'res/mushrooms/' directory:" << endl;
+            system("ls -la res/mushrooms/");
             cout << "Mushroom went wrong" << endl;
+        }
     }
 
-        if (!texturedown)
+    if (!texturedown)
     {
         texturedown = new sf::Texture;
-        if(!(texturedown->loadFromFile("res/mushrooms/mushroom_down.png")))
+        if(!(texturedown->loadFromFile("res/mushrooms/Mushroom_down.png")))
+        {
+            cout << "Failed to load image \"res/mushrooms/mushroom_down.png\". Reason: Unable to open file" << endl;
+            cout << "Current working directory when loading: " << endl;
+            system("pwd");
+            cout << "Contents of 'res/mushrooms/' directory:" << endl;
+            system("ls -la res/mushrooms/");
             cout << "Mushroom went wrong" << endl;
+        }
     }
     s = new sf::Sprite;
     s->setTexture(*textureup);
