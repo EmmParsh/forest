@@ -236,7 +236,7 @@ int Forest::grow()
     delete[] plants;
     plants = nullptr;
 
-    n_plants--;
+    n_plants++;
 
     if (n_plants == 0) {
         plants = nullptr;
